@@ -1,0 +1,15 @@
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Serveur actif ✅");
+  } else {
+    res.writeHead(404, { "Content-Type": "text/plain" });
+    res.end("Page non trouvée ❌");
+  }
+});
+
+server.listen(3000, () => {
+  console.log("Serveur lancé sur http://localhost:3000");
+});
